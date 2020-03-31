@@ -22,14 +22,16 @@ TOKEN = os.getenv('DISCORD_TOKEN')
 
 bot = commands.Bot(command_prefix='!')
 
+#Show that we have logged on.S
 @bot.event
 async def on_ready():
-        print('Logged on!')
-@bot.event
-#async def on_member_join(self,member):
- #       await message.channel.send('Hi' + {member.name} + ', welcome to the soviet union!')
+    print('Logged on!')
 
-@bot.command
+@bot.event
+async def on_member_join(self,member):
+    await message.channel.send('Hi' + {member.name} + ', welcome to the soviet union!')
+
+@bot.command()
 async def honk(ctx):
     '''
     Honk! hjonk! HonK!1!11
