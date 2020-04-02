@@ -1,4 +1,5 @@
 # -*- coding: utf8 -*-
+#pylint: disable=unused-variable
 
 #Import all of our 
 import os
@@ -88,7 +89,8 @@ async def aprilfools(ctx):
     '''
     APRIL FOOLS
     '''
+    
     for x in range(500):
         await ctx.send("Happy Fpril Aools")
-#Runs the code using our bot's token    
+
 bot.run(TOKEN)
