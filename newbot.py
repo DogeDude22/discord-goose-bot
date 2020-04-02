@@ -1,9 +1,14 @@
 # -*- coding: utf8 -*-
+#pylint: disable=unused-variable
 
+#Import all of our 
 import os
-import discord
 import random
 from dotenv import load_dotenv
+from discord.ext import commands
+import discord
+
+#List of all of our honks
 hjonks = [
     'HONK',
     'honk',
@@ -17,35 +22,75 @@ hjonks = [
     'Honk'
     ]
 
+#A list of our emojis
+emojis = [
+    '<:takebell:694682279087439995>',
+    '<:goosebadge:694682278613221397>'
+]
+
+dadjokeslist = [
+    'Today, my son asked "Can I have a book mark?" and I burst into tears. 11 years old and he still doesnt know my name is Brian.',
+    'My wife is really mad at the fact that I have no sense of direction. So I packed up my stuff and right.',
+    'I bought some shoes from a drug dealer. I dont know what he laced them with, but I was tripping all day!',
+    'Did you know the first French fries werent actually cooked in France? They were cooked in Greece.',
+    'If a child refuses to sleep during nap time, are they guilty of resisting a rest?',
+    'The secret service isnt allowed to yell '"Get down!"' anymore when the president is about to be attacked. Now they have to yell "Donald, duck!'
+]
+
+#Get our bots token from a file
 load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
 
-client = discord.Client()
+#Set our bot's prefix to !
+bot = commands.Bot(command_prefix='$')
 
-class MyClient(discord.Client):
-    async def on_ready(self):
-        print('Logged on as', self.user)
+#Show that we have logged on.
+@bot.event
+async def on_ready():
+    print('Logged on!')
 
-    async def on_member_join(self,member):
-        await message.channel.send('Hi' + {member.name} + ', welcome to the soviet union!')
+#Create a command
+@bot.command()
+#Name it honk
+async def honk(ctx):
+    #Set the !help text
+    '''
+    Honk! hjonk! HonK!1!11
+    '''
+    #Say the line
+    await ctx.send(random.choice(hjonks))
+ 
+@bot.command()
+async def respond(ctx):
+    '''
+    I like my custom emojis
+    '''
+    #Do the response
+    await ctx.message.add_reaction(random.choice(emojis))
+
+@bot.command()
+async def MeMe(ctx):
+    '''
+    Funny goose MeMe
+    '''
+    await ctx.send(file=discord.File(r'C:\Users\jackk\Downloads\takebell.png'))
+    #await channel.send(file=discord.File('my_file.png'))
+
+@bot.command()
+async def dadjoke(ctx):
+    '''
+    I'm not broken, I'm dad
+    '''
+    await ctx.send(random.choice(dadjokeslist))
 
 
-    async def on_message(self,message):
-         #don't respond to ourselves
-        if message.author == self.user:
-            return
+@bot.command()
+async def aprilfools(ctx):
+    '''
+    APRIL FOOLS
+    '''
+    
+    for x in range(500):
+        await ctx.send("Happy Fpril Aools")
 
-        if message.content == '!honk':
-            print('Hi')
-            await message.channel.send(random.choice(hjonks))
-        
-    async def on_message(self,message):
-         #don't respond to ourselves
-        if message.author == self.user:
-            return
-
-        if message.content == '!motherrussia':
-            await message.channel.send('Russia is our sacred power, Russia is our beloved country. Mighty will, great glory - Your possession for all time! Glory to our free Fatherland, The fraternal peoples of the age-old union, The ancestors of this wisdom of the people! Glory to the country! We proud of you! From the southern seas to the polar region Spread our forests and fields. You alone in the world! You are the only one - God?s native land! Glory to our free Fatherland, The fraternal peoples of the age-old union, The ancestors of this wisdom of the people! Glory to the country! We proud of you! Wide scope for dreams and for life The coming years open to us. Our loyalty to the Fatherland gives us strength. So it was, it is, and it always will be! Glory to our free Fatherland, The fraternal peoples of the age-old union, The ancestors of this wisdom of the people! Glory to the country! We proud of you!')
-    async def on_message()
-client = MyClient()
-client.run(TOKEN)
+bot.run(TOKEN)
