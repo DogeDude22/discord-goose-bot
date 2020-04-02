@@ -84,13 +84,6 @@ async def dadjoke(ctx):
     await ctx.send(random.choice(dadjokeslist))
 
 
-@bot.command()
-async def aprilfools(ctx):
-    '''
-    APRIL FOOLS
-    '''
     
-    for x in range(500):
-        await ctx.send("Happy Fpril Aools")
 
 bot.run(TOKEN)
