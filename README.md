@@ -10,4 +10,7 @@ little feller for discord
 [![forthebadge](https://forthebadge.com/images/badges/mom-made-pizza-rolls.svg)](https://forthebadge.com)
 [![forthebadge](https://forthebadge.com/images/badges/no-ragrets.svg)](https://forthebadge.com)
 
+# Info
+goose bot is a self hosted bot, meaning you have to run it off of your computer.
+
 
