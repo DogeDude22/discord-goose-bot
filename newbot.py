@@ -7,6 +7,7 @@ import random
 from dotenv import load_dotenv
 from discord.ext import commands
 import discord
+import builtins
 
 #List of all of our honks
 hjonks = [
@@ -43,6 +44,9 @@ TOKEN = os.getenv('DISCORD_TOKEN')
 
 #Set our bot's prefix to !
 bot = commands.Bot(command_prefix='$')
+builtins.bot = bot
+
+import toggle_commands
 
 #Show that we have logged on.
 @bot.event
@@ -58,32 +62,40 @@ async def honk(ctx):
     Honk! hjonk! HonK!1!11
     '''
     #Say the line
-    await ctx.send(random.choice(hjonks))
+    if toggle_commands.honktoggle == False:
+        return
+    else:
+        await ctx.send(random.choice(hjonks))
  
 @bot.command()
 async def respond(ctx):
     '''
     I like my custom emojis
     '''
-    #Do the response
-    await ctx.message.add_reaction(random.choice(emojis))
+    #Do the response 
+    if toggle_commands.responsetoggle == False:
+        return
+    else:
+        await ctx.message.add_reaction(random.choice(emojis))
 
 @bot.command()
 async def MeMe(ctx):
     '''
     Funny goose MeMe
     '''
-    await ctx.send(file=discord.File(r'C:\Users\jackk\Downloads\takebell.png'))
-    #await channel.send(file=discord.File('my_file.png'))
+    if toggle_commands.memetoggle == False:
+        return
+    else:
+        await ctx.send(file=discord.File(r'C:\Users\jackk\Downloads\takebell.png'))
 
 @bot.command()
 async def dadjoke(ctx):
     '''
     I'm not broken, I'm dad
     '''
-    await ctx.send(random.choice(dadjokeslist))
-
-
-    
+    if toggle_commands.dadtoggle
+        return
+    else:
+        await ctx.send(random.choice(dadjokeslist))
 
 bot.run(TOKEN)
