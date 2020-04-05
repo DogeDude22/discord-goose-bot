@@ -1,7 +1,7 @@
 # -*- coding: utf8 -*-
 #pylint: disable=unused-variable
 
-#Import all of our 
+#Import all of our libraries
 import os
 import random
 from dotenv import load_dotenv
@@ -58,7 +58,7 @@ async def MeMe(ctx):
     if toggle_commands.memetoggle == False:
         return
     else:
-        await ctx.send(file=discord.File(r'C:\Users\jackk\Downloads\takebell.png'))
+        await ctx.send(file=discord.File(random.choice(varibles.memes)))
 
 @bot.command()
 async def dadjoke(ctx):

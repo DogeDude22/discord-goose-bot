@@ -25,3 +25,10 @@ dadlist = [
     'If a child refuses to sleep during nap time, are they guilty of resisting a rest?',
     'The secret service isnt allowed to yell '"Get down!"' anymore when the president is about to be attacked. Now they have to yell "Donald, duck!'
 ]
+
+memes = [
+    r'C:\Users\jackk\Downloads\takebell.png',
+    r'C:\Users\jackk\Downloads\goosebadge.png',
+    r'C:\Users\jackk\Downloads\HonkBonk.jpg',
+    r'C:\Users\jackk\Downloads\stolen-1.png'
+]
