@@ -1,5 +1,4 @@
 # -*- coding: utf8 -*-
-#pylint: disable=unused-variable
 
 #Import all of our libraries
 import os
@@ -69,5 +68,21 @@ async def dadjoke(ctx):
         return
     else:
         await ctx.send(random.choice(varibles.dadlist))
+
+@bot.command()
+async def square(ctx):
+    '''
+    Print a code block
+    '''
+    await ctx.send(
+'''
+```
+This
+    is
+        a
+    cool
+cube```
+'''
+    )
 
 bot.run(TOKEN)
